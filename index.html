@@ -1,0 +1,2032 @@
+<!doctype html>
+<html lang="es" class="dark">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Portafolio Dashboard | Minimalist Neon</title>
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Lucide Icons -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <!-- Google Fonts: Inter & JetBrains Mono -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500;700&display=swap"
+      rel="stylesheet"
+    />
+
+    <script src="js/tailwind.config.js"></script>
+
+    <link rel="stylesheet" href="css/styles.css" />
+  </head>
+  <body
+    class="min-h-screen flex flex-col md:flex-row antialiased selection:bg-neon-cyan/20 selection:text-neon-cyan"
+  >
+    <!-- Ambient background glows -->
+    <div
+      class="fixed top-0 left-1/4 w-96 h-96 bg-neon-cyan/5 rounded-full filter blur-[120px] pointer-events-none"
+    ></div>
+    <div
+      class="fixed bottom-0 right-1/4 w-96 h-96 bg-neon-purple/5 rounded-full filter blur-[120px] pointer-events-none"
+    ></div>
+
+    <!-- MOBILE HEADER / BARRA SUPERIOR MÓVIL -->
+    <header
+      class="md:hidden glass-panel z-40 p-4 flex items-center justify-between sticky top-0"
+    >
+      <div class="flex items-center gap-3">
+        <div
+          class="w-9 h-9 rounded-lg bg-gradient-to-tr from-neon-cyan to-neon-purple p-[1px]"
+        >
+          <div
+            class="w-full h-full bg-dark-bg rounded-[7px] flex items-center justify-center font-bold text-neon-cyan"
+          >
+            Dev
+          </div>
+        </div>
+        <span class="font-bold text-lg tracking-wider text-white"
+          >PORTAFOLIO</span
+        >
+      </div>
+      <button
+        id="mobileMenuBtn"
+        class="p-2 text-gray-400 hover:text-white rounded-lg focus:outline-none"
+      >
+        <i data-lucide="menu" class="w-6 h-6"></i>
+      </button>
+    </header>
+
+    <!-- SIDEBAR / BARRA LATERAL -->
+    <aside
+      id="sidebar"
+      class="fixed md:sticky top-0 left-0 h-screen w-64 glass-panel z-50 transform -translate-x-full md:translate-x-0 transition-transform duration-300 ease-in-out flex flex-col justify-between p-4 border-r border-white/5 overflow-y-auto"
+    >
+      <div>
+        <!-- Header sidebar -->
+        <div class="hidden md:flex items-center gap-3 px-2 py-4 mb-6">
+          <div
+            class="w-10 h-10 rounded-xl bg-gradient-to-tr from-neon-cyan to-neon-purple p-[1px] shadow-neon-cyan/20 shadow-lg"
+          >
+            <div
+              class="w-full h-full bg-[#0d101d] rounded-[11px] flex items-center justify-center font-mono font-bold text-neon-cyan"
+            >
+              JS
+            </div>
+          </div>
+          <div>
+            <h1 class="font-bold text-white text-sm tracking-wide">
+              Joberland Suniaga
+            </h1>
+            <p class="text-xs text-gray-400 font-mono">Full Stack Architect</p>
+          </div>
+        </div>
+
+        <!-- Menú de Navegación -->
+        <nav class="space-y-1.5">
+          <p
+            class="px-3 text-[10px] font-mono text-gray-500 uppercase tracking-wider mb-2"
+          >
+            Menú Principal
+          </p>
+
+          <a
+            href="#overview"
+            data-section="overview"
+            class="nav-item nav-active flex items-center gap-3 px-3 py-2.5 rounded-lg text-sm font-medium text-gray-300 hover:text-white transition-all"
+          >
+            <i data-lucide="layout-dashboard" class="w-4 h-4"></i>
+            <span>Dashboard / Resumen</span>
+          </a>
+
+          <a
+            href="#skills"
+            data-section="skills"
+            class="nav-item flex items-center gap-3 px-3 py-2.5 rounded-lg text-sm font-medium text-gray-300 hover:text-white transition-all"
+          >
+            <i data-lucide="code-2" class="w-4 h-4"></i>
+            <span>Conocimientos</span>
+          </a>
+
+          <a
+            href="#cv"
+            data-section="cv"
+            class="nav-item flex items-center gap-3 px-3 py-2.5 rounded-lg text-sm font-medium text-gray-300 hover:text-white transition-all"
+          >
+            <i data-lucide="file-text" class="w-4 h-4"></i>
+            <span>CV / Experiencia</span>
+          </a>
+
+          <a
+            href="#services"
+            data-section="services"
+            class="nav-item flex items-center gap-3 px-3 py-2.5 rounded-lg text-sm font-medium text-gray-300 hover:text-white transition-all"
+          >
+            <i data-lucide="briefcase" class="w-4 h-4"></i>
+            <span>Servicios & Oferta</span>
+          </a>
+
+          <a
+            href="#projects"
+            data-section="projects"
+            class="nav-item flex items-center gap-3 px-3 py-2.5 rounded-lg text-sm font-medium text-gray-300 hover:text-white transition-all"
+          >
+            <i data-lucide="folder-git-2" class="w-4 h-4"></i>
+            <span>Proyectos / Trabajos</span>
+          </a>
+
+          <a
+            href="#contact"
+            data-section="contact"
+            class="nav-item flex items-center gap-3 px-3 py-2.5 rounded-lg text-sm font-medium text-gray-300 hover:text-white transition-all"
+          >
+            <i data-lucide="mail" class="w-4 h-4"></i>
+            <span>Contacto</span>
+          </a>
+        </nav>
+      </div>
+
+      <!-- Footer Sidebar Status -->
+      <div class="space-y-3 pt-4 border-t border-white/5">
+        <div class="glass-card p-3 rounded-xl flex items-center gap-3">
+          <span class="relative flex h-3 w-3">
+            <span
+              class="pulse-dot absolute inline-flex h-full w-full rounded-full bg-neon-emerald opacity-75"
+            ></span>
+            <span
+              class="relative inline-flex rounded-full h-3 w-3 bg-neon-emerald"
+            ></span>
+          </span>
+          <div class="text-xs">
+            <p class="text-white font-medium">Estado Actual</p>
+            <p class="text-neon-emerald font-mono text-[11px]">
+              Disponible para proyectos
+            </p>
+          </div>
+        </div>
+
+        <!-- Redes Sociales rápidas -->
+        <div class="flex justify-around text-gray-400 pt-1">
+          <a href="#" class="hover:text-neon-cyan transition-colors p-1.5"
+            ><i data-lucide="github" class="w-4 h-4"></i
+          ></a>
+          <a href="#" class="hover:text-neon-cyan transition-colors p-1.5"
+            ><i data-lucide="linkedin" class="w-4 h-4"></i
+          ></a>
+          <a href="#" class="hover:text-neon-cyan transition-colors p-1.5"
+            ><i data-lucide="twitter" class="w-4 h-4"></i
+          ></a>
+        </div>
+      </div>
+    </aside>
+
+    <!-- MAIN CONTENT / CONTENIDO PRINCIPAL -->
+    <main class="flex-1 min-w-0 flex flex-col min-h-screen">
+      <!-- HEADER SUPERIOR DE DASHBOARD -->
+      <header
+        class="glass-panel sticky top-0 z-30 px-6 py-3 flex items-center justify-between border-b border-white/5 backdrop-blur-md"
+      >
+        <!-- Buscador Global -->
+        <div class="relative w-full max-w-xs md:max-w-md hidden sm:block">
+          <i
+            data-lucide="search"
+            class="w-4 h-4 absolute left-3 top-1/2 -translate-y-1/2 text-gray-400"
+          ></i>
+          <input
+            type="text"
+            id="globalSearch"
+            placeholder="Buscar habilidades, tecnologías o trabajos..."
+            class="w-full bg-dark-bg/60 border border-white/10 rounded-xl pl-9 pr-4 py-1.5 text-xs text-gray-200 placeholder-gray-500 input-glow transition-all"
+          />
+        </div>
+
+        <!-- Perfil & Quick Actions -->
+        <div class="flex items-center gap-4 ml-auto">
+          <a
+            href="#contact"
+            onclick="navigateTo('contact')"
+            class="hidden sm:flex items-center gap-2 px-3 py-1.5 rounded-lg text-xs font-semibold bg-neon-cyan/10 border border-neon-cyan/30 text-neon-cyan hover:bg-neon-cyan hover:text-black transition-all"
+          >
+            <i data-lucide="send" class="w-3.5 h-3.5"></i>
+            Contratar
+          </a>
+
+          <div class="h-6 w-[1px] bg-white/10 hidden sm:block"></div>
+
+          <!-- User Info Header -->
+          <div class="flex items-center gap-3">
+            <img
+              src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=100&auto=format&fit=crop&q=80"
+              alt="Joberland Suniaga"
+              class="w-8 h-8 rounded-full border border-neon-cyan/40 object-cover"
+            />
+            <div class="text-left hidden md:block">
+              <p class="text-xs font-semibold text-white">Joberland Suniaga</p>
+              <p class="text-[10px] text-gray-400">Caracas, Venezuela</p>
+            </div>
+          </div>
+        </div>
+      </header>
+
+      <!-- SECCIONES DINÁMICAS -->
+      <div class="p-4 sm:p-6 lg:p-8 space-y-8 flex-1">
+        <!-- 1. RESUMEN / DASHBOARD OVERVIEW -->
+        <section id="sec-overview" class="section-content space-y-6">
+          <!-- Banner de bienvenida -->
+          <div
+            class="glass-card p-6 rounded-2xl relative overflow-hidden border-neon-cyan/20"
+          >
+            <div
+              class="absolute -right-10 -bottom-10 w-48 h-48 bg-neon-cyan/10 rounded-full blur-2xl"
+            ></div>
+            <div class="relative z-10 max-w-2xl">
+              <span
+                class="inline-block px-2.5 py-1 rounded-full text-[10px] font-mono bg-neon-cyan/10 border border-neon-cyan/30 text-neon-cyan mb-3"
+              >
+                SYSTEM ONLINE v2.4
+              </span>
+              <h2 class="text-2xl sm:text-3xl font-bold text-white mb-2">
+                Joberland Suniaga
+              </h2>
+              <p class="text-neon-cyan font-mono text-xs mb-3">
+                Desarrollador Full Stack Junior | TSU en Informática
+              </p>
+              <p class="text-gray-400 text-sm leading-relaxed mb-4">
+                Ubicado en Caracas (Capuchinos, Av. San Martín). Desarrollador
+                Full Stack Junior con experiencia en HTML, CSS, JavaScript,
+                Node.js y Express. En constante aprendizaje, enfocado en crear
+                soluciones web funcionales y resolver problemas técnicos.
+              </p>
+              <div class="flex flex-wrap gap-3">
+                <button
+                  onclick="navigateTo('projects')"
+                  class="px-4 py-2 rounded-xl text-xs font-bold bg-gradient-to-r from-neon-cyan to-blue-600 text-black hover:opacity-90 transition-all flex items-center gap-2"
+                >
+                  Explorar Proyectos
+                  <i data-lucide="arrow-right" class="w-4 h-4"></i>
+                </button>
+                <a
+                  href="mailto:suniagajoberland@gmail.com"
+                  class="px-4 py-2 rounded-xl text-xs font-medium glass-card border border-white/10 text-gray-300 hover:text-white hover:border-white/20 transition-all flex items-center gap-2"
+                >
+                  <i data-lucide="mail" class="w-4 h-4"></i> Enviar Correo
+                </a>
+                <button
+                  onclick="navigateTo('cv')"
+                  class="px-4 py-2 rounded-xl text-xs font-medium glass-card border border-neon-purple/30 text-gray-300 hover:text-neon-purple hover:border-neon-purple/50 transition-all flex items-center gap-2"
+                >
+                  <i data-lucide="file-text" class="w-4 h-4"></i> Ver CV
+                </button>
+              </div>
+            </div>
+          </div>
+
+          <!-- Métricas Rápidas -->
+          <div class="grid grid-cols-2 lg:grid-cols-4 gap-4">
+            <div
+              class="glass-card p-4 rounded-xl border-l-2 border-l-neon-cyan"
+            >
+              <div class="flex items-center justify-between text-gray-400 mb-2">
+                <span class="text-xs font-mono">Experiencia</span>
+                <i data-lucide="clock" class="w-4 h-4 text-neon-cyan"></i>
+              </div>
+              <p class="text-2xl font-bold text-white font-mono">+5 Años</p>
+              <span class="text-[10px] text-gray-500"
+                >Experiencia en Tecnología</span
+              >
+            </div>
+
+            <div
+              class="glass-card p-4 rounded-xl border-l-2 border-l-neon-purple"
+            >
+              <div class="flex items-center justify-between text-gray-400 mb-2">
+                <span class="text-xs font-mono">Proyectos</span>
+                <i
+                  data-lucide="check-circle-2"
+                  class="w-4 h-4 text-neon-purple"
+                ></i>
+              </div>
+              <p class="text-2xl font-bold text-white font-mono">8+</p>
+              <span class="text-[10px] text-gray-500"
+                >Proyectos y prácticas</span
+              >
+            </div>
+
+            <div
+              class="glass-card p-4 rounded-xl border-l-2 border-l-neon-emerald"
+            >
+              <div class="flex items-center justify-between text-gray-400 mb-2">
+                <span class="text-xs font-mono">Actitud</span>
+                <i
+                  data-lucide="trending-up"
+                  class="w-4 h-4 text-neon-emerald"
+                ></i>
+              </div>
+              <p class="text-2xl font-bold text-white font-mono">100%</p>
+              <span class="text-[10px] text-gray-500"
+                >Compromiso y ganas de crecer</span
+              >
+            </div>
+
+            <div class="glass-card p-4 rounded-xl border-l-2 border-l-blue-500">
+              <div class="flex items-center justify-between text-gray-400 mb-2">
+                <span class="text-xs font-mono">Tech Stack</span>
+                <i data-lucide="cpu" class="w-4 h-4 text-blue-500"></i>
+              </div>
+              <p class="text-2xl font-bold text-white font-mono">10+</p>
+              <span class="text-[10px] text-gray-500"
+                >Tecnologías en formación</span
+              >
+            </div>
+          </div>
+
+          <!-- Gráficos & Actividad Simulado -->
+          <div class="grid grid-cols-1 lg:grid-cols-3 gap-6">
+            <!-- Panel de distribución de tiempo/habilidades -->
+            <div
+              class="glass-card p-5 rounded-2xl lg:col-span-2 flex flex-col justify-between"
+            >
+              <div class="flex items-center justify-between mb-4">
+                <h3
+                  class="text-sm font-semibold text-white flex items-center gap-2"
+                >
+                  <i data-lucide="activity" class="w-4 h-4 text-neon-cyan"></i>
+                  Distribución de Desarrollo
+                </h3>
+                <span class="text-xs font-mono text-gray-400"
+                  >Últimos 12 meses</span
+                >
+              </div>
+
+              <div class="space-y-4 my-2">
+                <div>
+                  <div class="flex justify-between text-xs mb-1">
+                    <span class="text-gray-300"
+                      >Desarrollo Web (HTML, CSS, JavaScript)</span
+                    >
+                    <span class="text-neon-cyan font-mono">55%</span>
+                  </div>
+                  <div
+                    class="w-full h-2 bg-dark-bg rounded-full overflow-hidden"
+                  >
+                    <div
+                      class="h-full bg-neon-cyan rounded-full"
+                      style="width: 55%"
+                    ></div>
+                  </div>
+                </div>
+
+                <div>
+                  <div class="flex justify-between text-xs mb-1">
+                    <span class="text-gray-300"
+                      >Backend & Bases de Datos (Node.js, Express, MySQL)</span
+                    >
+                    <span class="text-neon-purple font-mono">30%</span>
+                  </div>
+                  <div
+                    class="w-full h-2 bg-dark-bg rounded-full overflow-hidden"
+                  >
+                    <div
+                      class="h-full bg-neon-purple rounded-full"
+                      style="width: 30%"
+                    ></div>
+                  </div>
+                </div>
+
+                <div>
+                  <div class="flex justify-between text-xs mb-1">
+                    <span class="text-gray-300">Redes & Soporte Técnico</span>
+                    <span class="text-neon-emerald font-mono">15%</span>
+                  </div>
+                  <div
+                    class="w-full h-2 bg-dark-bg rounded-full overflow-hidden"
+                  >
+                    <div
+                      class="h-full bg-neon-emerald rounded-full"
+                      style="width: 15%"
+                    ></div>
+                  </div>
+                </div>
+              </div>
+
+              <div
+                class="pt-4 border-t border-white/5 flex items-center justify-between text-xs text-gray-400"
+              >
+                <span
+                  >Mentalidad:
+                  <strong class="text-white font-mono"
+                    >Aprendizaje continuo</strong
+                  ></span
+                >
+                <a
+                  href="#skills"
+                  onclick="navigateTo('skills')"
+                  class="text-neon-cyan hover:underline"
+                  >Ver detalles &rarr;</a
+                >
+              </div>
+            </div>
+
+            <!-- Card Destacada / Status -->
+            <div
+              class="glass-card p-5 rounded-2xl flex flex-col justify-between border-neon-purple/20"
+            >
+              <div>
+                <span
+                  class="text-xs font-mono text-neon-purple uppercase tracking-wider"
+                  >Enfoque Actual</span
+                >
+                <h4 class="text-lg font-bold text-white mt-1">
+                  Desarrollo Web & Crecimiento Profesional
+                </h4>
+                <p class="text-xs text-gray-400 mt-2 leading-relaxed">
+                  Construyendo landing pages, tiendas en línea y sistemas de
+                  inventario mientras fortalezco mis bases de backend, buenas
+                  prácticas y trabajo en equipo.
+                </p>
+              </div>
+
+              <div
+                class="mt-6 p-3 rounded-xl bg-dark-bg/60 border border-white/5 space-y-2"
+              >
+                <div class="flex items-center gap-2 text-xs text-gray-300">
+                  <i data-lucide="zap" class="w-3.5 h-3.5 text-yellow-400"></i>
+                  <span>Aprendizaje rápido y adaptación</span>
+                </div>
+                <div class="flex items-center gap-2 text-xs text-gray-300">
+                  <i
+                    data-lucide="shield-check"
+                    class="w-3.5 h-3.5 text-neon-emerald"
+                  ></i>
+                  <span>Buenas prácticas y código mantenible</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- 2. CONOCIMIENTOS / HABILIDADES -->
+        <section id="sec-skills" class="section-content hidden space-y-6">
+          <div>
+            <h2 class="text-xl font-bold text-white flex items-center gap-2">
+              <i data-lucide="code-2" class="text-neon-cyan"></i> Habilidades
+              Técnicas & Stack
+            </h2>
+            <p class="text-xs text-gray-400 mt-1">
+              Tecnologías y herramientas en las que tengo experiencia y sigo
+              formándome
+            </p>
+          </div>
+
+          <!-- Categorías de habilidades -->
+          <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+            <!-- Frontend -->
+            <div class="glass-card p-5 rounded-2xl space-y-4">
+              <div class="flex items-center gap-3">
+                <div class="p-2 rounded-lg bg-neon-cyan/10 text-neon-cyan">
+                  <i data-lucide="layout" class="w-5 h-5"></i>
+                </div>
+                <h3 class="font-bold text-white">Frontend Development</h3>
+              </div>
+
+              <div class="space-y-3 pt-2">
+                <div>
+                  <div class="flex justify-between text-xs text-gray-300 mb-1">
+                    <span>HTML5</span>
+                    <span class="font-mono text-neon-cyan">80%</span>
+                  </div>
+                  <div
+                    class="w-full h-1.5 bg-dark-bg rounded-full overflow-hidden"
+                  >
+                    <div
+                      class="h-full bg-neon-cyan rounded-full"
+                      style="width: 80%"
+                    ></div>
+                  </div>
+                </div>
+
+                <div>
+                  <div class="flex justify-between text-xs text-gray-300 mb-1">
+                    <span>CSS3 / Diseño Responsive</span>
+                    <span class="font-mono text-neon-cyan">75%</span>
+                  </div>
+                  <div
+                    class="w-full h-1.5 bg-dark-bg rounded-full overflow-hidden"
+                  >
+                    <div
+                      class="h-full bg-neon-cyan rounded-full"
+                      style="width: 75%"
+                    ></div>
+                  </div>
+                </div>
+
+                <div>
+                  <div class="flex justify-between text-xs text-gray-300 mb-1">
+                    <span>JavaScript</span>
+                    <span class="font-mono text-neon-cyan">70%</span>
+                  </div>
+                  <div
+                    class="w-full h-1.5 bg-dark-bg rounded-full overflow-hidden"
+                  >
+                    <div
+                      class="h-full bg-neon-cyan rounded-full"
+                      style="width: 70%"
+                    ></div>
+                  </div>
+                </div>
+
+                <div>
+                  <div class="flex justify-between text-xs text-gray-300 mb-1">
+                    <span>Maquetación & UI Básica</span>
+                    <span class="font-mono text-neon-cyan">65%</span>
+                  </div>
+                  <div
+                    class="w-full h-1.5 bg-dark-bg rounded-full overflow-hidden"
+                  >
+                    <div
+                      class="h-full bg-neon-cyan rounded-full"
+                      style="width: 65%"
+                    ></div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Backend -->
+            <div class="glass-card p-5 rounded-2xl space-y-4">
+              <div class="flex items-center gap-3">
+                <div class="p-2 rounded-lg bg-neon-purple/10 text-neon-purple">
+                  <i data-lucide="server" class="w-5 h-5"></i>
+                </div>
+                <h3 class="font-bold text-white">Backend & Databases</h3>
+              </div>
+
+              <div class="space-y-3 pt-2">
+                <div>
+                  <div class="flex justify-between text-xs text-gray-300 mb-1">
+                    <span>Node.js / Express</span>
+                    <span class="font-mono text-neon-purple">60%</span>
+                  </div>
+                  <div
+                    class="w-full h-1.5 bg-dark-bg rounded-full overflow-hidden"
+                  >
+                    <div
+                      class="h-full bg-neon-purple rounded-full"
+                      style="width: 60%"
+                    ></div>
+                  </div>
+                </div>
+
+                <div>
+                  <div class="flex justify-between text-xs text-gray-300 mb-1">
+                    <span>MySQL</span>
+                    <span class="font-mono text-neon-purple">60%</span>
+                  </div>
+                  <div
+                    class="w-full h-1.5 bg-dark-bg rounded-full overflow-hidden"
+                  >
+                    <div
+                      class="h-full bg-neon-purple rounded-full"
+                      style="width: 60%"
+                    ></div>
+                  </div>
+                </div>
+
+                <div>
+                  <div class="flex justify-between text-xs text-gray-300 mb-1">
+                    <span>Java / PHP</span>
+                    <span class="font-mono text-neon-purple">55%</span>
+                  </div>
+                  <div
+                    class="w-full h-1.5 bg-dark-bg rounded-full overflow-hidden"
+                  >
+                    <div
+                      class="h-full bg-neon-purple rounded-full"
+                      style="width: 55%"
+                    ></div>
+                  </div>
+                </div>
+
+                <div>
+                  <div class="flex justify-between text-xs text-gray-300 mb-1">
+                    <span>C# (Bases)</span>
+                    <span class="font-mono text-neon-purple">45%</span>
+                  </div>
+                  <div
+                    class="w-full h-1.5 bg-dark-bg rounded-full overflow-hidden"
+                  >
+                    <div
+                      class="h-full bg-neon-purple rounded-full"
+                      style="width: 45%"
+                    ></div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Tools & DevOps -->
+            <div class="glass-card p-5 rounded-2xl space-y-4">
+              <div class="flex items-center gap-3">
+                <div
+                  class="p-2 rounded-lg bg-neon-emerald/10 text-neon-emerald"
+                >
+                  <i data-lucide="wrench" class="w-5 h-5"></i>
+                </div>
+                <h3 class="font-bold text-white">
+                  Herramientas, Redes & Soporte
+                </h3>
+              </div>
+
+              <div class="space-y-3 pt-2">
+                <div>
+                  <div class="flex justify-between text-xs text-gray-300 mb-1">
+                    <span>Git / GitHub</span>
+                    <span class="font-mono text-neon-emerald">65%</span>
+                  </div>
+                  <div
+                    class="w-full h-1.5 bg-dark-bg rounded-full overflow-hidden"
+                  >
+                    <div
+                      class="h-full bg-neon-emerald rounded-full"
+                      style="width: 65%"
+                    ></div>
+                  </div>
+                </div>
+
+                <div>
+                  <div class="flex justify-between text-xs text-gray-300 mb-1">
+                    <span>Soporte Técnico</span>
+                    <span class="font-mono text-neon-emerald">85%</span>
+                  </div>
+                  <div
+                    class="w-full h-1.5 bg-dark-bg rounded-full overflow-hidden"
+                  >
+                    <div
+                      class="h-full bg-neon-emerald rounded-full"
+                      style="width: 85%"
+                    ></div>
+                  </div>
+                </div>
+
+                <div>
+                  <div class="flex justify-between text-xs text-gray-300 mb-1">
+                    <span>Redes LAN / Wi-Fi</span>
+                    <span class="font-mono text-neon-emerald">80%</span>
+                  </div>
+                  <div
+                    class="w-full h-1.5 bg-dark-bg rounded-full overflow-hidden"
+                  >
+                    <div
+                      class="h-full bg-neon-emerald rounded-full"
+                      style="width: 80%"
+                    ></div>
+                  </div>
+                </div>
+
+                <div>
+                  <div class="flex justify-between text-xs text-gray-300 mb-1">
+                    <span>Seguridad Informática & Routers</span>
+                    <span class="font-mono text-neon-emerald">60%</span>
+                  </div>
+                  <div
+                    class="w-full h-1.5 bg-dark-bg rounded-full overflow-hidden"
+                  >
+                    <div
+                      class="h-full bg-neon-emerald rounded-full"
+                      style="width: 60%"
+                    ></div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Soft Skills / Badges -->
+          <div class="glass-card p-5 rounded-2xl">
+            <h3 class="text-sm font-semibold text-white mb-3">
+              Otras Habilidades & Aptitudes
+            </h3>
+            <div class="flex flex-wrap gap-2">
+              <span
+                class="px-3 py-1 rounded-lg bg-white/5 border border-white/10 text-xs text-gray-300"
+                >Aprendizaje Continuo</span
+              >
+              <span
+                class="px-3 py-1 rounded-lg bg-white/5 border border-white/10 text-xs text-gray-300"
+                >Resolución de Problemas</span
+              >
+              <span
+                class="px-3 py-1 rounded-lg bg-white/5 border border-white/10 text-xs text-gray-300"
+                >Trabajo en Equipo</span
+              >
+              <span
+                class="px-3 py-1 rounded-lg bg-white/5 border border-white/10 text-xs text-gray-300"
+                >Proactividad</span
+              >
+              <span
+                class="px-3 py-1 rounded-lg bg-white/5 border border-white/10 text-xs text-gray-300"
+                >Adaptación al Cambio Tecnológico</span
+              >
+              <span
+                class="px-3 py-1 rounded-lg bg-white/5 border border-white/10 text-xs text-gray-300"
+                >Gestión de Inventarios (FIFO)</span
+              >
+              <span
+                class="px-3 py-1 rounded-lg bg-white/5 border border-white/10 text-xs text-gray-300"
+                >Atención al Cliente</span
+              >
+            </div>
+          </div>
+        </section>
+
+        <!-- 3. CV / EXPERIENCIA -->
+        <section id="sec-cv" class="section-content hidden space-y-6">
+          <div
+            class="flex flex-col sm:flex-row sm:items-start justify-between gap-4"
+          >
+            <div>
+              <h2 class="text-xl font-bold text-white flex items-center gap-2">
+                <i data-lucide="file-text" class="text-neon-cyan"></i>
+                Currículum Vitae
+              </h2>
+              <p class="text-xs text-gray-400 mt-1">
+                Trayectoria profesional, formación académica y certificaciones
+              </p>
+            </div>
+            <div class="flex flex-wrap gap-2">
+              <a
+                href="cv.html?print=1"
+                class="px-3 py-2 rounded-xl text-xs font-semibold bg-neon-cyan/10 border border-neon-cyan/30 text-neon-cyan hover:bg-neon-cyan hover:text-black transition-all flex items-center gap-2"
+              >
+                <i data-lucide="download" class="w-3.5 h-3.5"></i> Descargar CV
+                en PDF
+              </a>
+            </div>
+          </div>
+
+          <!-- Perfil Profesional -->
+          <div class="glass-card p-6 rounded-2xl border-l-2 border-l-neon-cyan">
+            <h3
+              class="text-sm font-semibold text-white mb-2 flex items-center gap-2"
+            >
+              <i data-lucide="user-round" class="w-4 h-4 text-neon-cyan"></i>
+              Perfil Profesional
+            </h3>
+            <p class="text-xs text-gray-300 leading-relaxed">
+              Técnico Superior Universitario en Informática y Desarrollador Full
+              Stack Junior con sólida experiencia en la creación de soluciones
+              de software, arquitectura web y optimización de sistemas.
+              Especializado en tecnologías modernas de desarrollo web como HTML,
+              CSS, JavaScript, Node.js y Express, con un manejo fluido de Git y
+              GitHub para el control de versiones. Capacidad demostrada para
+              diseñar sistemas de inventario, automatizar procesos internos y
+              resolver incidencias de hardware/software, aportando eficiencia
+              operativa y soluciones técnicas eficientes en entornos dinámicos.
+            </p>
+          </div>
+
+          <!-- Competencias Técnicas -->
+          <div class="glass-card p-5 rounded-2xl">
+            <h3
+              class="text-sm font-semibold text-white mb-4 flex items-center gap-2"
+            >
+              <i data-lucide="cpu" class="w-4 h-4 text-neon-cyan"></i>
+              Competencias Técnicas
+            </h3>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+              <div class="p-3 rounded-xl bg-dark-bg/60 border border-white/5">
+                <p class="text-[11px] font-mono text-neon-cyan mb-1.5">
+                  Desarrollo Frontend
+                </p>
+                <p class="text-xs text-gray-300">HTML, CSS, JavaScript</p>
+              </div>
+              <div class="p-3 rounded-xl bg-dark-bg/60 border border-white/5">
+                <p class="text-[11px] font-mono text-neon-purple mb-1.5">
+                  Backend y Base de Datos
+                </p>
+                <p class="text-xs text-gray-300">
+                  Node.js, Express, PHP, Java, MySQL, C#
+                </p>
+              </div>
+              <div class="p-3 rounded-xl bg-dark-bg/60 border border-white/5">
+                <p class="text-[11px] font-mono text-neon-emerald mb-1.5">
+                  Herramientas y Control de Versiones
+                </p>
+                <p class="text-xs text-gray-300">Git, GitHub</p>
+              </div>
+              <div class="p-3 rounded-xl bg-dark-bg/60 border border-white/5">
+                <p class="text-[11px] font-mono text-blue-400 mb-1.5">
+                  Infraestructura y Soporte
+                </p>
+                <p class="text-xs text-gray-300">
+                  Redes LAN, redes Wi-Fi, administración de routers, seguridad
+                  informática y soporte técnico
+                </p>
+              </div>
+            </div>
+          </div>
+
+          <!-- Experiencia Profesional -->
+          <div class="glass-card p-6 rounded-2xl">
+            <h3
+              class="text-sm font-semibold text-white mb-5 flex items-center gap-2"
+            >
+              <i
+                data-lucide="briefcase-business"
+                class="w-4 h-4 text-neon-cyan"
+              ></i>
+              Experiencia Profesional
+            </h3>
+            <div class="relative border-l border-white/10 ml-2 space-y-6 pl-6">
+              <div class="relative">
+                <span
+                  class="absolute -left-[31px] top-1.5 w-3 h-3 rounded-full bg-neon-cyan ring-4 ring-dark-bg"
+                ></span>
+                <div
+                  class="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-1"
+                >
+                  <h4 class="text-sm font-bold text-white">
+                    Desarrollador Web Freelance y Proyectos Personales
+                  </h4>
+                  <span
+                    class="text-[10px] font-mono text-neon-cyan whitespace-nowrap"
+                    >Oct 2025 – Actualidad</span
+                  >
+                </div>
+                <p class="text-[11px] text-gray-400 mb-2">Caracas, Venezuela</p>
+                <ul
+                  class="text-xs text-gray-300 space-y-1.5 list-disc list-inside marker:text-neon-cyan"
+                >
+                  <li>
+                    Diseñé e implementé interfaces de usuario interactivas con
+                    HTML y CSS, optimizando el código para un diseño responsivo
+                    y fluido.
+                  </li>
+                  <li>
+                    Desarrollé e integré lógica del lado del cliente con
+                    JavaScript, mejorando la experiencia del usuario en
+                    aplicaciones dinámicas.
+                  </li>
+                  <li>
+                    Construí la arquitectura del servidor y APIs robustas con
+                    Node.js y Express, garantizando comunicación eficiente y
+                    segura.
+                  </li>
+                  <li>
+                    Gestioné el ciclo de vida de los proyectos con Git y GitHub,
+                    facilitando el despliegue continuo y la colaboración.
+                  </li>
+                </ul>
+              </div>
+
+              <div class="relative">
+                <span
+                  class="absolute -left-[31px] top-1.5 w-3 h-3 rounded-full bg-neon-purple ring-4 ring-dark-bg"
+                ></span>
+                <div
+                  class="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-1"
+                >
+                  <h4 class="text-sm font-bold text-white">
+                    ADP — Mercaderista Funcional y Gestión de Inventarios
+                  </h4>
+                  <span
+                    class="text-[10px] font-mono text-neon-purple whitespace-nowrap"
+                    >Feb 2026 – Actualidad</span
+                  >
+                </div>
+                <p class="text-[11px] text-gray-400 mb-2">Caracas, Venezuela</p>
+                <ul
+                  class="text-xs text-gray-300 space-y-1.5 list-disc list-inside marker:text-neon-purple"
+                >
+                  <li>
+                    Lideré el control de stock y reabastecimiento aplicando
+                    rotación FIFO, reduciendo mermas por vencimiento y mejorando
+                    la precisión del inventario.
+                  </li>
+                  <li>
+                    Agilicé la atención al cliente en caja mediante gestión
+                    operativa rápida, manteniendo el cuadre diario sin
+                    discrepancias financieras.
+                  </li>
+                </ul>
+              </div>
+
+              <div class="relative">
+                <span
+                  class="absolute -left-[31px] top-1.5 w-3 h-3 rounded-full bg-neon-emerald ring-4 ring-dark-bg"
+                ></span>
+                <div
+                  class="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-1"
+                >
+                  <h4 class="text-sm font-bold text-white">
+                    Global IT System C.A. (Onprotec) — Técnico en Redes y Asesor
+                    Comercial
+                  </h4>
+                  <span
+                    class="text-[10px] font-mono text-neon-emerald whitespace-nowrap"
+                    >Feb 2018 – Oct 2025</span
+                  >
+                </div>
+                <p class="text-[11px] text-gray-400 mb-2">Caracas, Venezuela</p>
+                <ul
+                  class="text-xs text-gray-300 space-y-1.5 list-disc list-inside marker:text-neon-emerald"
+                >
+                  <li>
+                    Desplegué y configuré módems, routers, extensores Wi-Fi y
+                    cámaras de seguridad, incrementando la estabilidad de la red
+                    de clientes corporativos.
+                  </li>
+                  <li>
+                    Automaticé el flujo de preventa con cotizaciones
+                    estructuradas y seguimiento de pedidos, logrando conversión
+                    comercial constante y control de inventario.
+                  </li>
+                </ul>
+              </div>
+
+              <div class="relative">
+                <span
+                  class="absolute -left-[31px] top-1.5 w-3 h-3 rounded-full bg-blue-400 ring-4 ring-dark-bg"
+                ></span>
+                <div
+                  class="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-1"
+                >
+                  <h4 class="text-sm font-bold text-white">
+                    Bekesantos — Especialista en Soporte Informático y Técnico
+                  </h4>
+                  <span
+                    class="text-[10px] font-mono text-blue-400 whitespace-nowrap"
+                    >May 2017 – Sep 2017</span
+                  >
+                </div>
+                <p class="text-[11px] text-gray-400 mb-2">Caracas, Venezuela</p>
+                <ul
+                  class="text-xs text-gray-300 space-y-1.5 list-disc list-inside marker:text-blue-400"
+                >
+                  <li>
+                    Aseguré la continuidad operativa en agencias bancarias con
+                    soporte presencial y remoto, configurando servidores e
+                    impresoras industriales Zebra bajo políticas de seguridad.
+                  </li>
+                </ul>
+              </div>
+
+              <div class="relative">
+                <span
+                  class="absolute -left-[31px] top-1.5 w-3 h-3 rounded-full bg-yellow-400 ring-4 ring-dark-bg"
+                ></span>
+                <div
+                  class="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-1"
+                >
+                  <h4 class="text-sm font-bold text-white">
+                    Innovaciones Japonesas Injaca C.A. — Desarrollador de
+                    Software
+                  </h4>
+                  <span
+                    class="text-[10px] font-mono text-yellow-400 whitespace-nowrap"
+                    >Oct 2016 – Dic 2016</span
+                  >
+                </div>
+                <p class="text-[11px] text-gray-400 mb-2">Caracas, Venezuela</p>
+                <ul
+                  class="text-xs text-gray-300 space-y-1.5 list-disc list-inside marker:text-yellow-400"
+                >
+                  <li>
+                    Desarrollé un sistema web interno para control y evaluación
+                    de cuarentenas, automatizando reportes operativos y
+                    centralizando el monitoreo de actividades.
+                  </li>
+                </ul>
+              </div>
+
+              <div class="relative">
+                <span
+                  class="absolute -left-[31px] top-1.5 w-3 h-3 rounded-full bg-gray-400 ring-4 ring-dark-bg"
+                ></span>
+                <div
+                  class="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-1"
+                >
+                  <h4 class="text-sm font-bold text-white">
+                    Hospital Universitario de Caracas — Desarrollador Java en
+                    Proyecto Académico
+                  </h4>
+                  <span
+                    class="text-[10px] font-mono text-gray-400 whitespace-nowrap"
+                    >Oct 2016 – Dic 2016</span
+                  >
+                </div>
+                <p class="text-[11px] text-gray-400 mb-2">Caracas, Venezuela</p>
+                <ul
+                  class="text-xs text-gray-300 space-y-1.5 list-disc list-inside marker:text-gray-400"
+                >
+                  <li>
+                    Diseñé e implementé un sistema de gestión de inventarios con
+                    Java y MySQL, reduciendo el tiempo de procesamiento manual
+                    mediante la automatización de informes.
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
+
+          <!-- Educación & Certificaciones -->
+          <div class="grid grid-cols-1 lg:grid-cols-2 gap-6">
+            <div class="glass-card p-5 rounded-2xl space-y-4">
+              <h3
+                class="text-sm font-semibold text-white flex items-center gap-2"
+              >
+                <i
+                  data-lucide="graduation-cap"
+                  class="w-4 h-4 text-neon-emerald"
+                ></i>
+                Educación
+              </h3>
+              <div class="p-3 rounded-xl bg-dark-bg/60 border border-white/5">
+                <h4 class="text-xs font-bold text-white">
+                  TSU en Administración, Mención Informática
+                </h4>
+                <p class="text-[11px] text-gray-400 mt-1">
+                  Instituto Universitario de Administración Industrial (IUTA –
+                  Guarenas)
+                </p>
+                <p class="text-[10px] font-mono text-neon-emerald mt-1">
+                  Feb 2013 – Feb 2016
+                </p>
+              </div>
+              <div class="p-3 rounded-xl bg-dark-bg/60 border border-white/5">
+                <h4 class="text-xs font-bold text-white">
+                  Técnico Medio Industrial en Máquinas Herramientas
+                </h4>
+                <p class="text-[11px] text-gray-400 mt-1">
+                  Escuela Técnica Industrial Rubén González
+                </p>
+                <p class="text-[10px] font-mono text-neon-emerald mt-1">
+                  Sep 2004 – Jul 2011
+                </p>
+              </div>
+            </div>
+
+            <div class="glass-card p-5 rounded-2xl space-y-3">
+              <h3
+                class="text-sm font-semibold text-white flex items-center gap-2"
+              >
+                <i data-lucide="award" class="w-4 h-4 text-neon-purple"></i>
+                Certificaciones
+              </h3>
+              <ul class="text-xs text-gray-300 space-y-2">
+                <li class="flex items-start gap-2">
+                  <i
+                    data-lucide="badge-check"
+                    class="w-3.5 h-3.5 text-neon-purple mt-0.5 shrink-0"
+                  ></i>
+                  Certificación en Programación Full Stack (Formación intensiva
+                  de 8 meses)
+                </li>
+                <li class="flex items-start gap-2">
+                  <i
+                    data-lucide="badge-check"
+                    class="w-3.5 h-3.5 text-neon-purple mt-0.5 shrink-0"
+                  ></i>
+                  Fundamentos de Redes – Cisco Curso Certificado
+                </li>
+                <li class="flex items-start gap-2">
+                  <i
+                    data-lucide="badge-check"
+                    class="w-3.5 h-3.5 text-neon-purple mt-0.5 shrink-0"
+                  ></i>
+                  HCSA (Hikvision Certified Security Associate) en Alarmas
+                </li>
+                <li class="flex items-start gap-2">
+                  <i
+                    data-lucide="badge-check"
+                    class="w-3.5 h-3.5 text-neon-purple mt-0.5 shrink-0"
+                  ></i>
+                  Jump Start en C#
+                </li>
+                <li class="flex items-start gap-2">
+                  <i
+                    data-lucide="badge-check"
+                    class="w-3.5 h-3.5 text-neon-purple mt-0.5 shrink-0"
+                  ></i>
+                  Curso Básico de Soporte Técnico
+                </li>
+              </ul>
+            </div>
+          </div>
+
+          <!-- Aptitudes -->
+          <div class="glass-card p-5 rounded-2xl">
+            <h3
+              class="text-sm font-semibold text-white mb-3 flex items-center gap-2"
+            >
+              <i data-lucide="sparkles" class="w-4 h-4 text-neon-cyan"></i>
+              Aptitudes
+            </h3>
+            <div class="flex flex-wrap gap-2">
+              <span
+                class="px-3 py-1 rounded-lg bg-white/5 border border-white/10 text-xs text-gray-300"
+                >Orientación a Resultados</span
+              >
+              <span
+                class="px-3 py-1 rounded-lg bg-white/5 border border-white/10 text-xs text-gray-300"
+                >Resolución de Problemas Técnicos</span
+              >
+              <span
+                class="px-3 py-1 rounded-lg bg-white/5 border border-white/10 text-xs text-gray-300"
+                >Trabajo en Equipo</span
+              >
+              <span
+                class="px-3 py-1 rounded-lg bg-white/5 border border-white/10 text-xs text-gray-300"
+                >Proactividad</span
+              >
+              <span
+                class="px-3 py-1 rounded-lg bg-white/5 border border-white/10 text-xs text-gray-300"
+                >Adaptación al Cambio Tecnológico</span
+              >
+            </div>
+          </div>
+        </section>
+
+        <!-- 4. ACTIVIDADES & SERVICIOS -->
+        <section id="sec-services" class="section-content hidden space-y-6">
+          <div>
+            <h2 class="text-xl font-bold text-white flex items-center gap-2">
+              <i data-lucide="briefcase" class="text-neon-cyan"></i> Servicios &
+              Oferta Profesional
+            </h2>
+            <p class="text-xs text-gray-400 mt-1">
+              Soluciones a medida para empresas, startups y proyectos
+              independientes
+            </p>
+          </div>
+
+          <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+            <!-- Servicio 1 -->
+            <div
+              class="glass-card p-6 rounded-2xl flex flex-col justify-between group"
+            >
+              <div>
+                <div
+                  class="w-12 h-12 rounded-xl bg-neon-cyan/10 border border-neon-cyan/20 flex items-center justify-center text-neon-cyan mb-4 group-hover:scale-110 transition-transform"
+                >
+                  <i data-lucide="globe" class="w-6 h-6"></i>
+                </div>
+                <h3 class="text-lg font-bold text-white mb-2">
+                  Desarrollo Web Full Stack
+                </h3>
+                <p class="text-xs text-gray-400 leading-relaxed mb-4">
+                  Sitios web y landing pages responsivas construidas con HTML,
+                  CSS y JavaScript.
+                </p>
+                <ul class="text-xs text-gray-300 space-y-2 mb-6">
+                  <li class="flex items-center gap-2">
+                    <i
+                      data-lucide="check"
+                      class="w-3.5 h-3.5 text-neon-cyan"
+                    ></i>
+                    Landing pages responsivas
+                  </li>
+                  <li class="flex items-center gap-2">
+                    <i
+                      data-lucide="check"
+                      class="w-3.5 h-3.5 text-neon-cyan"
+                    ></i>
+                    Sitios web corporativos
+                  </li>
+                  <li class="flex items-center gap-2">
+                    <i
+                      data-lucide="check"
+                      class="w-3.5 h-3.5 text-neon-cyan"
+                    ></i>
+                    Paneles básicos de administración
+                  </li>
+                </ul>
+              </div>
+              <button
+                onclick="requestService('Desarrollo Web Full Stack')"
+                class="w-full py-2 rounded-xl text-xs font-semibold bg-white/5 hover:bg-neon-cyan/10 hover:text-neon-cyan border border-white/10 hover:border-neon-cyan/30 transition-all flex items-center justify-center gap-2"
+              >
+                Cotizar Servicio
+                <i data-lucide="arrow-right" class="w-3.5 h-3.5"></i>
+              </button>
+            </div>
+
+            <!-- Servicio 2 -->
+            <div
+              class="glass-card p-6 rounded-2xl flex flex-col justify-between group"
+            >
+              <div>
+                <div
+                  class="w-12 h-12 rounded-xl bg-neon-purple/10 border border-neon-purple/20 flex items-center justify-center text-neon-purple mb-4 group-hover:scale-110 transition-transform"
+                >
+                  <i data-lucide="database" class="w-6 h-6"></i>
+                </div>
+                <h3 class="text-lg font-bold text-white mb-2">
+                  Desarrollo de APIs & Backend
+                </h3>
+                <p class="text-xs text-gray-400 leading-relaxed mb-4">
+                  APIs y servicios backend con Node.js y Express, con modelado
+                  de bases de datos MySQL.
+                </p>
+                <ul class="text-xs text-gray-300 space-y-2 mb-6">
+                  <li class="flex items-center gap-2">
+                    <i
+                      data-lucide="check"
+                      class="w-3.5 h-3.5 text-neon-purple"
+                    ></i>
+                    APIs REST con Node.js y Express
+                  </li>
+                  <li class="flex items-center gap-2">
+                    <i
+                      data-lucide="check"
+                      class="w-3.5 h-3.5 text-neon-purple"
+                    ></i>
+                    Modelado y consultas en MySQL
+                  </li>
+                  <li class="flex items-center gap-2">
+                    <i
+                      data-lucide="check"
+                      class="w-3.5 h-3.5 text-neon-purple"
+                    ></i>
+                    Autenticación básica de usuarios
+                  </li>
+                </ul>
+              </div>
+              <button
+                onclick="requestService('Desarrollo de APIs & Backend')"
+                class="w-full py-2 rounded-xl text-xs font-semibold bg-white/5 hover:bg-neon-purple/10 hover:text-neon-purple border border-white/10 hover:border-neon-purple/30 transition-all flex items-center justify-center gap-2"
+              >
+                Cotizar Servicio
+                <i data-lucide="arrow-right" class="w-3.5 h-3.5"></i>
+              </button>
+            </div>
+
+            <!-- Servicio 3 -->
+            <div
+              class="glass-card p-6 rounded-2xl flex flex-col justify-between group"
+            >
+              <div>
+                <div
+                  class="w-12 h-12 rounded-xl bg-neon-emerald/10 border border-neon-emerald/20 flex items-center justify-center text-neon-emerald mb-4 group-hover:scale-110 transition-transform"
+                >
+                  <i data-lucide="sparkles" class="w-6 h-6"></i>
+                </div>
+                <h3 class="text-lg font-bold text-white mb-2">
+                  Maquetación Web & Rediseño
+                </h3>
+                <p class="text-xs text-gray-400 leading-relaxed mb-4">
+                  Rediseño y maquetación de interfaces responsivas, accesibles e
+                  intuitivas.
+                </p>
+                <ul class="text-xs text-gray-300 space-y-2 mb-6">
+                  <li class="flex items-center gap-2">
+                    <i
+                      data-lucide="check"
+                      class="w-3.5 h-3.5 text-neon-emerald"
+                    ></i>
+                    Maquetación responsive
+                  </li>
+                  <li class="flex items-center gap-2">
+                    <i
+                      data-lucide="check"
+                      class="w-3.5 h-3.5 text-neon-emerald"
+                    ></i>
+                    Rediseño de interfaces
+                  </li>
+                  <li class="flex items-center gap-2">
+                    <i
+                      data-lucide="check"
+                      class="w-3.5 h-3.5 text-neon-emerald"
+                    ></i>
+                    Mejoras de usabilidad
+                  </li>
+                </ul>
+              </div>
+              <button
+                onclick="requestService('Maquetación Web & Rediseño')"
+                class="w-full py-2 rounded-xl text-xs font-semibold bg-white/5 hover:bg-neon-emerald/10 hover:text-neon-emerald border border-white/10 hover:border-neon-emerald/30 transition-all flex items-center justify-center gap-2"
+              >
+                Cotizar Servicio
+                <i data-lucide="arrow-right" class="w-3.5 h-3.5"></i>
+              </button>
+            </div>
+          </div>
+        </section>
+
+        <!-- 5. PROYECTOS / TRABAJOS -->
+        <section id="sec-projects" class="section-content hidden space-y-6">
+          <div
+            class="flex flex-col sm:flex-row sm:items-center justify-between gap-4"
+          >
+            <div>
+              <h2 class="text-xl font-bold text-white flex items-center gap-2">
+                <i data-lucide="folder-git-2" class="text-neon-cyan"></i>
+                Galería de Proyectos
+              </h2>
+              <p class="text-xs text-gray-400 mt-1">
+                Trabajos recientes e iniciativas destacadas
+              </p>
+            </div>
+
+            <!-- Filtros -->
+            <div
+              class="flex items-center gap-2 overflow-x-auto pb-1"
+              id="projectFilters"
+            >
+              <button
+                data-filter="all"
+                class="px-3 py-1.5 rounded-lg text-xs font-medium bg-neon-cyan/20 border border-neon-cyan text-neon-cyan"
+              >
+                Todos
+              </button>
+              <button
+                data-filter="frontend"
+                class="px-3 py-1.5 rounded-lg text-xs font-medium bg-white/5 border border-white/10 text-gray-400 hover:text-white"
+              >
+                Frontend
+              </button>
+              <button
+                data-filter="fullstack"
+                class="px-3 py-1.5 rounded-lg text-xs font-medium bg-white/5 border border-white/10 text-gray-400 hover:text-white"
+              >
+                Full Stack
+              </button>
+              <button
+                data-filter="landing"
+                class="px-3 py-1.5 rounded-lg text-xs font-medium bg-white/5 border border-white/10 text-gray-400 hover:text-white"
+              >
+                Landing Pages
+              </button>
+              <button
+                data-filter="ecommerce"
+                class="px-3 py-1.5 rounded-lg text-xs font-medium bg-white/5 border border-white/10 text-gray-400 hover:text-white"
+              >
+                E-commerce
+              </button>
+            </div>
+          </div>
+
+          <!-- Grid de Proyectos -->
+          <div
+            class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6"
+            id="projectsGrid"
+          >
+            <!-- Proyecto Destacado: Upper Creators -->
+            <div
+              class="glass-card rounded-2xl overflow-hidden project-card"
+              data-category="frontend landing"
+            >
+              <div class="h-44 bg-slate-900 relative overflow-hidden group">
+                <img
+                  src="https://images.unsplash.com/photo-1492691527719-9d1e07e534b4?w=600&auto=format&fit=crop&q=80"
+                  alt="Upper Creators"
+                  class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500 opacity-80"
+                />
+                <div
+                  class="absolute inset-0 bg-gradient-to-t from-dark-bg via-transparent to-transparent"
+                ></div>
+                <span
+                  class="absolute top-3 right-3 px-2.5 py-0.5 rounded-full text-[10px] font-mono bg-neon-cyan/20 border border-neon-cyan/40 text-neon-cyan"
+                >
+                  Sitio Web
+                </span>
+              </div>
+              <div class="p-5 space-y-3">
+                <h3 class="font-bold text-white text-base">
+                  Upper Creators — Agencia Audiovisual
+                </h3>
+                <p class="text-xs text-gray-400 line-clamp-2">
+                  Sitio web corporativo para agencia audiovisual, con portafolio
+                  de servicios, galería de contenido y contacto directo por
+                  WhatsApp.
+                </p>
+                <div class="flex flex-wrap gap-1.5 pt-1">
+                  <span
+                    class="px-2 py-0.5 rounded text-[10px] font-mono bg-white/5 text-neon-cyan border border-white/5"
+                    >HTML</span
+                  >
+                  <span
+                    class="px-2 py-0.5 rounded text-[10px] font-mono bg-white/5 text-neon-cyan border border-white/5"
+                    >CSS</span
+                  >
+                  <span
+                    class="px-2 py-0.5 rounded text-[10px] font-mono bg-white/5 text-neon-cyan border border-white/5"
+                    >JavaScript</span
+                  >
+                </div>
+                <div
+                  class="pt-3 border-t border-white/5 flex items-center justify-between text-xs"
+                >
+                  <a
+                    href="https://uppercreators.com/"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    class="text-neon-cyan hover:underline flex items-center gap-1"
+                    >Ver Sitio
+                    <i data-lucide="external-link" class="w-3.5 h-3.5"></i
+                  ></a>
+                  <span class="text-gray-400 flex items-center gap-1"
+                    ><i
+                      data-lucide="circle-check"
+                      class="w-3.5 h-3.5 text-neon-emerald"
+                    ></i>
+                    En vivo</span
+                  >
+                </div>
+              </div>
+            </div>
+
+            <!-- Proyecto Destacado: Technology Group -->
+            <div
+              class="glass-card rounded-2xl overflow-hidden project-card"
+              data-category="fullstack ecommerce"
+            >
+              <div class="h-44 bg-slate-900 relative overflow-hidden group">
+                <img
+                  src="https://images.unsplash.com/photo-1565814329452-e1efa11c5b89?w=600&auto=format&fit=crop&q=80"
+                  alt="Technology Group"
+                  class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500 opacity-80"
+                />
+                <div
+                  class="absolute inset-0 bg-gradient-to-t from-dark-bg via-transparent to-transparent"
+                ></div>
+                <span
+                  class="absolute top-3 right-3 px-2.5 py-0.5 rounded-full text-[10px] font-mono bg-neon-purple/20 border border-neon-purple/40 text-neon-purple"
+                >
+                  Catálogo Web
+                </span>
+              </div>
+              <div class="p-5 space-y-3">
+                <h3 class="font-bold text-white text-base">
+                  Technology Group — Catálogo de Productos
+                </h3>
+                <p class="text-xs text-gray-400 line-clamp-2">
+                  Catálogo web de iluminación LED, material eléctrico y
+                  seguridad, con búsqueda de productos, categorías y contacto
+                  directo por WhatsApp. Envíos a toda Venezuela.
+                </p>
+                <div class="flex flex-wrap gap-1.5 pt-1">
+                  <span
+                    class="px-2 py-0.5 rounded text-[10px] font-mono bg-white/5 text-neon-purple border border-white/5"
+                    >HTML</span
+                  >
+                  <span
+                    class="px-2 py-0.5 rounded text-[10px] font-mono bg-white/5 text-neon-purple border border-white/5"
+                    >CSS</span
+                  >
+                  <span
+                    class="px-2 py-0.5 rounded text-[10px] font-mono bg-white/5 text-neon-purple border border-white/5"
+                    >JavaScript</span
+                  >
+                  <span
+                    class="px-2 py-0.5 rounded text-[10px] font-mono bg-white/5 text-neon-purple border border-white/5"
+                    >Vercel</span
+                  >
+                </div>
+                <div
+                  class="pt-3 border-t border-white/5 flex items-center justify-between text-xs"
+                >
+                  <a
+                    href="https://technologygroup.vercel.app/"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    class="text-neon-purple hover:underline flex items-center gap-1"
+                    >Ver Sitio
+                    <i data-lucide="external-link" class="w-3.5 h-3.5"></i
+                  ></a>
+                  <span class="text-gray-400 flex items-center gap-1"
+                    ><i
+                      data-lucide="circle-check"
+                      class="w-3.5 h-3.5 text-neon-emerald"
+                    ></i>
+                    En vivo</span
+                  >
+                </div>
+              </div>
+            </div>
+
+            <!-- Proyecto 1 -->
+            <div
+              class="glass-card rounded-2xl overflow-hidden project-card"
+              data-category="frontend landing"
+            >
+              <div class="h-44 bg-slate-900 relative overflow-hidden group">
+                <img
+                  src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=600&auto=format&fit=crop&q=80"
+                  alt="Landing Page Corporativa"
+                  class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500 opacity-80"
+                />
+                <div
+                  class="absolute inset-0 bg-gradient-to-t from-dark-bg via-transparent to-transparent"
+                ></div>
+                <span
+                  class="absolute top-3 right-3 px-2.5 py-0.5 rounded-full text-[10px] font-mono bg-neon-cyan/20 border-neon-cyan/40 text-neon-cyan"
+                >
+                  Landing Page
+                </span>
+              </div>
+              <div class="p-5 space-y-3">
+                <h3 class="font-bold text-white text-base">
+                  Landing Page Corporativa
+                </h3>
+                <p class="text-xs text-gray-400 line-clamp-2">
+                  Página de aterrizaje responsiva para presentar servicios, con
+                  secciones informativas y formulario de contacto adaptable a
+                  móviles.
+                </p>
+                <div class="flex flex-wrap gap-1.5 pt-1">
+                  <span
+                    class="px-2 py-0.5 rounded text-[10px] font-mono bg-white/5 text-neon-cyan border border-white/5"
+                    >HTML</span
+                  >
+                  <span
+                    class="px-2 py-0.5 rounded text-[10px] font-mono bg-white/5 text-neon-cyan border border-white/5"
+                    >CSS</span
+                  >
+                  <span
+                    class="px-2 py-0.5 rounded text-[10px] font-mono bg-white/5 text-neon-cyan border border-white/5"
+                    >JavaScript</span
+                  >
+                </div>
+                <div
+                  class="pt-3 border-t border-white/5 flex items-center justify-between text-xs"
+                >
+                  <a
+                    href="#"
+                    class="text-neon-cyan hover:underline flex items-center gap-1"
+                    >Ver Demo
+                    <i data-lucide="external-link" class="w-3.5 h-3.5"></i
+                  ></a>
+                  <a
+                    href="#"
+                    class="text-gray-400 hover:text-white flex items-center gap-1"
+                    ><i data-lucide="github" class="w-3.5 h-3.5"></i> Repo</a
+                  >
+                </div>
+              </div>
+            </div>
+
+            <!-- Proyecto 2 -->
+            <div
+              class="glass-card rounded-2xl overflow-hidden project-card"
+              data-category="fullstack ecommerce"
+            >
+              <div class="h-44 bg-slate-900 relative overflow-hidden group">
+                <img
+                  src="https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?w=600&auto=format&fit=crop&q=80"
+                  alt="Tienda en Línea"
+                  class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500 opacity-80"
+                />
+                <div
+                  class="absolute inset-0 bg-gradient-to-t from-dark-bg via-transparent to-transparent"
+                ></div>
+                <span
+                  class="absolute top-3 right-3 px-2.5 py-0.5 rounded-full text-[10px] font-mono bg-neon-purple/20 border-neon-purple/40 text-neon-purple"
+                >
+                  E-commerce
+                </span>
+              </div>
+              <div class="p-5 space-y-3">
+                <h3 class="font-bold text-white text-base">
+                  Tienda en Línea (E-commerce)
+                </h3>
+                <p class="text-xs text-gray-400 line-clamp-2">
+                  Catálogo de productos, carrito de compras y gestión de pedidos
+                  con conexión a base de datos MySQL.
+                </p>
+                <div class="flex flex-wrap gap-1.5 pt-1">
+                  <span
+                    class="px-2 py-0.5 rounded text-[10px] font-mono bg-white/5 text-neon-purple border border-white/5"
+                    >Node.js</span
+                  >
+                  <span
+                    class="px-2 py-0.5 rounded text-[10px] font-mono bg-white/5 text-neon-purple border border-white/5"
+                    >Express</span
+                  >
+                  <span
+                    class="px-2 py-0.5 rounded text-[10px] font-mono bg-white/5 text-neon-purple border border-white/5"
+                    >MySQL</span
+                  >
+                </div>
+                <div
+                  class="pt-3 border-t border-white/5 flex items-center justify-between text-xs"
+                >
+                  <a
+                    href="#"
+                    class="text-neon-purple hover:underline flex items-center gap-1"
+                    >Ver Demo
+                    <i data-lucide="external-link" class="w-3.5 h-3.5"></i
+                  ></a>
+                  <a
+                    href="#"
+                    class="text-gray-400 hover:text-white flex items-center gap-1"
+                    ><i data-lucide="github" class="w-3.5 h-3.5"></i> Repo</a
+                  >
+                </div>
+              </div>
+            </div>
+
+            <!-- Proyecto 3 -->
+            <div
+              class="glass-card rounded-2xl overflow-hidden project-card"
+              data-category="frontend"
+            >
+              <div class="h-44 bg-slate-900 relative overflow-hidden group">
+                <img
+                  src="https://images.unsplash.com/photo-1507238691740-187a5b1d37b8?w=600&auto=format&fit=crop&q=80"
+                  alt="Tarjeta de Presentación Digital"
+                  class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500 opacity-80"
+                />
+                <div
+                  class="absolute inset-0 bg-gradient-to-t from-dark-bg via-transparent to-transparent"
+                ></div>
+                <span
+                  class="absolute top-3 right-3 px-2.5 py-0.5 rounded-full text-[10px] font-mono bg-neon-emerald/20 border-neon-emerald/40 text-neon-emerald"
+                >
+                  Tarjeta Digital
+                </span>
+              </div>
+              <div class="p-5 space-y-3">
+                <h3 class="font-bold text-white text-base">
+                  Tarjeta de Presentación Digital
+                </h3>
+                <p class="text-xs text-gray-400 line-clamp-2">
+                  Tarjeta de presentación web con datos de contacto, enlaces a
+                  redes sociales y diseño responsivo listo para compartir.
+                </p>
+                <div class="flex flex-wrap gap-1.5 pt-1">
+                  <span
+                    class="px-2 py-0.5 rounded text-[10px] font-mono bg-white/5 text-neon-emerald border border-white/5"
+                    >HTML</span
+                  >
+                  <span
+                    class="px-2 py-0.5 rounded text-[10px] font-mono bg-white/5 text-neon-emerald border border-white/5"
+                    >CSS</span
+                  >
+                  <span
+                    class="px-2 py-0.5 rounded text-[10px] font-mono bg-white/5 text-neon-emerald border border-white/5"
+                    >JavaScript</span
+                  >
+                </div>
+                <div
+                  class="pt-3 border-t border-white/5 flex items-center justify-between text-xs"
+                >
+                  <a
+                    href="#"
+                    class="text-neon-emerald hover:underline flex items-center gap-1"
+                    >Ver Demo
+                    <i data-lucide="external-link" class="w-3.5 h-3.5"></i
+                  ></a>
+                  <a
+                    href="#"
+                    class="text-gray-400 hover:text-white flex items-center gap-1"
+                    ><i data-lucide="github" class="w-3.5 h-3.5"></i> Repo</a
+                  >
+                </div>
+              </div>
+            </div>
+
+            <!-- Proyecto 4 -->
+            <div
+              class="glass-card rounded-2xl overflow-hidden project-card"
+              data-category="fullstack"
+            >
+              <div class="h-44 bg-slate-900 relative overflow-hidden group">
+                <img
+                  src="https://images.unsplash.com/photo-1553413077-190dd305871c?w=600&auto=format&fit=crop&q=80"
+                  alt="Sistema de Inventarios"
+                  class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500 opacity-80"
+                />
+                <div
+                  class="absolute inset-0 bg-gradient-to-t from-dark-bg via-transparent to-transparent"
+                ></div>
+                <span
+                  class="absolute top-3 right-3 px-2.5 py-0.5 rounded-full text-[10px] font-mono bg-blue-500/20 border-blue-500/40 text-blue-400"
+                >
+                  Sistema Web
+                </span>
+              </div>
+              <div class="p-5 space-y-3">
+                <h3 class="font-bold text-white text-base">
+                  Sistema de Inventarios
+                </h3>
+                <p class="text-xs text-gray-400 line-clamp-2">
+                  Sistema para registro y control de inventario con reportes
+                  automatizados, desarrollado como proyecto académico con Java y
+                  MySQL.
+                </p>
+                <div class="flex flex-wrap gap-1.5 pt-1">
+                  <span
+                    class="px-2 py-0.5 rounded text-[10px] font-mono bg-white/5 text-blue-400 border border-white/5"
+                    >Java</span
+                  >
+                  <span
+                    class="px-2 py-0.5 rounded text-[10px] font-mono bg-white/5 text-blue-400 border border-white/5"
+                    >MySQL</span
+                  >
+                </div>
+                <div
+                  class="pt-3 border-t border-white/5 flex items-center justify-between text-xs"
+                >
+                  <a
+                    href="#"
+                    class="text-blue-400 hover:underline flex items-center gap-1"
+                    >Ver Demo
+                    <i data-lucide="external-link" class="w-3.5 h-3.5"></i
+                  ></a>
+                  <a
+                    href="#"
+                    class="text-gray-400 hover:text-white flex items-center gap-1"
+                    ><i data-lucide="github" class="w-3.5 h-3.5"></i> Repo</a
+                  >
+                </div>
+              </div>
+            </div>
+
+            <!-- Proyecto 5 -->
+            <div
+              class="glass-card rounded-2xl overflow-hidden project-card"
+              data-category="frontend"
+            >
+              <div class="h-44 bg-slate-900 relative overflow-hidden group">
+                <img
+                  src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=600&auto=format&fit=crop&q=80"
+                  alt="Portafolio Personal"
+                  class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500 opacity-80"
+                />
+                <div
+                  class="absolute inset-0 bg-gradient-to-t from-dark-bg via-transparent to-transparent"
+                ></div>
+                <span
+                  class="absolute top-3 right-3 px-2.5 py-0.5 rounded-full text-[10px] font-mono bg-neon-cyan/20 border-neon-cyan/40 text-neon-cyan"
+                >
+                  Portafolio
+                </span>
+              </div>
+              <div class="p-5 space-y-3">
+                <h3 class="font-bold text-white text-base">
+                  Portafolio Personal
+                </h3>
+                <p class="text-xs text-gray-400 line-clamp-2">
+                  Portafolio web tipo dashboard con navegación dinámica, diseño
+                  moderno y sección de CV descargable en PDF.
+                </p>
+                <div class="flex flex-wrap gap-1.5 pt-1">
+                  <span
+                    class="px-2 py-0.5 rounded text-[10px] font-mono bg-white/5 text-neon-cyan border border-white/5"
+                    >HTML</span
+                  >
+                  <span
+                    class="px-2 py-0.5 rounded text-[10px] font-mono bg-white/5 text-neon-cyan border border-white/5"
+                    >CSS</span
+                  >
+                  <span
+                    class="px-2 py-0.5 rounded text-[10px] font-mono bg-white/5 text-neon-cyan border border-white/5"
+                    >JavaScript</span
+                  >
+                </div>
+                <div
+                  class="pt-3 border-t border-white/5 flex items-center justify-between text-xs"
+                >
+                  <a
+                    href="#"
+                    class="text-neon-cyan hover:underline flex items-center gap-1"
+                    >Ver Demo
+                    <i data-lucide="external-link" class="w-3.5 h-3.5"></i
+                  ></a>
+                  <a
+                    href="#"
+                    class="text-gray-400 hover:text-white flex items-center gap-1"
+                    ><i data-lucide="github" class="w-3.5 h-3.5"></i> Repo</a
+                  >
+                </div>
+              </div>
+            </div>
+
+            <!-- Proyecto 6 -->
+            <div
+              class="glass-card rounded-2xl overflow-hidden project-card"
+              data-category="fullstack"
+            >
+              <div class="h-44 bg-slate-900 relative overflow-hidden group">
+                <img
+                  src="https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?w=600&auto=format&fit=crop&q=80"
+                  alt="Sistema de Cuarentenas"
+                  class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500 opacity-80"
+                />
+                <div
+                  class="absolute inset-0 bg-gradient-to-t from-dark-bg via-transparent to-transparent"
+                ></div>
+                <span
+                  class="absolute top-3 right-3 px-2.5 py-0.5 rounded-full text-[10px] font-mono bg-neon-purple/20 border-neon-purple/40 text-neon-purple"
+                >
+                  Sistema Interno
+                </span>
+              </div>
+              <div class="p-5 space-y-3">
+                <h3 class="font-bold text-white text-base">
+                  Sistema de Control de Cuarentenas
+                </h3>
+                <p class="text-xs text-gray-400 line-clamp-2">
+                  Sistema web interno para el control y evaluación de
+                  cuarentenas, con reportes operativos automatizados.
+                </p>
+                <div class="flex flex-wrap gap-1.5 pt-1">
+                  <span
+                    class="px-2 py-0.5 rounded text-[10px] font-mono bg-white/5 text-neon-purple border border-white/5"
+                    >HTML</span
+                  >
+                  <span
+                    class="px-2 py-0.5 rounded text-[10px] font-mono bg-white/5 text-neon-purple border border-white/5"
+                    >CSS</span
+                  >
+                  <span
+                    class="px-2 py-0.5 rounded text-[10px] font-mono bg-white/5 text-neon-purple border border-white/5"
+                    >MySQL</span
+                  >
+                </div>
+                <div
+                  class="pt-3 border-t border-white/5 flex items-center justify-between text-xs"
+                >
+                  <a
+                    href="#"
+                    class="text-neon-purple hover:underline flex items-center gap-1"
+                    >Ver Demo
+                    <i data-lucide="external-link" class="w-3.5 h-3.5"></i
+                  ></a>
+                  <a
+                    href="#"
+                    class="text-gray-400 hover:text-white flex items-center gap-1"
+                    ><i data-lucide="github" class="w-3.5 h-3.5"></i> Repo</a
+                  >
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- 6. CONTACTO -->
+        <section id="sec-contact" class="section-content hidden space-y-6">
+          <div>
+            <h2 class="text-xl font-bold text-white flex items-center gap-2">
+              <i data-lucide="mail" class="text-neon-cyan"></i> Iniciar una
+              Conversación
+            </h2>
+            <p class="text-xs text-gray-400 mt-1">
+              ¿Tienes un proyecto en mente o deseas cotizar algún servicio?
+            </p>
+          </div>
+
+          <div class="grid grid-cols-1 lg:grid-cols-3 gap-6">
+            <!-- Formulario de Contacto -->
+            <div class="glass-card p-6 rounded-2xl lg:col-span-2">
+              <form id="contactForm" class="space-y-4">
+                <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                  <div>
+                    <label class="block text-xs font-medium text-gray-300 mb-1"
+                      >Nombre</label
+                    >
+                    <input
+                      type="text"
+                      required
+                      placeholder="Tu nombre o empresa"
+                      class="w-full bg-dark-bg/80 border border-white/10 rounded-xl px-4 py-2 text-xs text-white placeholder-gray-500 input-glow"
+                    />
+                  </div>
+                  <div>
+                    <label class="block text-xs font-medium text-gray-300 mb-1"
+                      >Correo Electrónico</label
+                    >
+                    <input
+                      type="email"
+                      required
+                      placeholder="correo@ejemplo.com"
+                      class="w-full bg-dark-bg/80 border border-white/10 rounded-xl px-4 py-2 text-xs text-white placeholder-gray-500 input-glow"
+                    />
+                  </div>
+                </div>
+
+                <div>
+                  <label class="block text-xs font-medium text-gray-300 mb-1"
+                    >Servicio de Interés</label
+                  >
+                  <select
+                    id="serviceSelect"
+                    class="w-full bg-dark-bg/80 border border-white/10 rounded-xl px-4 py-2 text-xs text-gray-300 input-glow"
+                  >
+                    <option value="general">Consulta General</option>
+                    <option value="Desarrollo Web Full Stack">
+                      Desarrollo Web Full Stack
+                    </option>
+                    <option value="Desarrollo de APIs & Backend">
+                      Desarrollo de APIs & Backend
+                    </option>
+                    <option value="Maquetación Web & Rediseño">
+                      Maquetación Web & Rediseño
+                    </option>
+                  </select>
+                </div>
+
+                <div>
+                  <label class="block text-xs font-medium text-gray-300 mb-1"
+                    >Mensaje / Detalles del Proyecto</label
+                  >
+                  <textarea
+                    rows="4"
+                    required
+                    placeholder="Cuéntame sobre las metas, plazos o requerimientos de tu proyecto..."
+                    class="w-full bg-dark-bg/80 border border-white/10 rounded-xl px-4 py-2 text-xs text-white placeholder-gray-500 input-glow"
+                  ></textarea>
+                </div>
+
+                <button
+                  type="submit"
+                  class="w-full py-2.5 rounded-xl text-xs font-bold bg-gradient-to-r from-neon-cyan to-blue-600 text-black hover:opacity-90 transition-all flex items-center justify-center gap-2"
+                >
+                  <i data-lucide="send" class="w-4 h-4"></i> Enviar Mensaje
+                </button>
+              </form>
+            </div>
+
+            <!-- Canales directos -->
+            <div class="space-y-4">
+              <div
+                class="glass-card p-5 rounded-2xl space-y-3 border-l-2 border-l-neon-cyan"
+              >
+                <span class="text-xs font-mono text-neon-cyan"
+                  >Contacto Directo</span
+                >
+                <div class="space-y-2 pt-1">
+                  <a
+                    href="https://wa.me/584226382165"
+                    target="_blank"
+                    class="flex items-center gap-3 p-2.5 rounded-lg bg-white/5 hover:bg-white/10 text-xs text-gray-200 transition-colors"
+                  >
+                    <i
+                      data-lucide="message-square"
+                      class="w-4 h-4 text-neon-emerald"
+                    ></i>
+                    <div>
+                      <p class="font-semibold text-white">WhatsApp Directo</p>
+                      <p class="text-[11px] font-mono text-gray-400">
+                        0422-6382165
+                      </p>
+                    </div>
+                  </a>
+                  <a
+                    href="mailto:suniagajoberland@gmail.com"
+                    class="flex items-center gap-3 p-2.5 rounded-lg bg-white/5 hover:bg-white/10 text-xs text-gray-200 transition-colors"
+                  >
+                    <i data-lucide="mail" class="w-4 h-4 text-neon-cyan"></i>
+                    <div>
+                      <p class="font-semibold text-white">Correo Electrónico</p>
+                      <p class="text-[11px] font-mono text-gray-400">
+                        suniagajoberland@gmail.com
+                      </p>
+                    </div>
+                  </a>
+                  <div
+                    class="flex items-center gap-3 p-2.5 rounded-lg bg-white/5 text-xs text-gray-200"
+                  >
+                    <i
+                      data-lucide="map-pin"
+                      class="w-4 h-4 text-neon-purple"
+                    ></i>
+                    <div>
+                      <p class="font-semibold text-white">Ubicación</p>
+                      <p class="text-[11px] text-gray-400">
+                        Caracas, Capuchinos, Av. San Martín
+                      </p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="glass-card p-5 rounded-2xl space-y-2">
+                <h4 class="text-xs font-bold text-white">
+                  Disponibilidad Actual
+                </h4>
+                <p class="text-xs text-gray-400 leading-relaxed">
+                  Aceptando proyectos freelance y oportunidades a tiempo
+                  completo/remoto. Tiempo estimado de respuesta: &lt; 24 horas.
+                </p>
+              </div>
+            </div>
+          </div>
+        </section>
+      </div>
+    </main>
+
+    <!-- NOTIFICACIÓN / MESSAGE BOX CUSTOM -->
+    <div
+      id="toast"
+      class="fixed bottom-5 right-5 glass-card px-4 py-3 rounded-xl border border-neon-cyan/40 text-xs text-white shadow-neon-cyan/20 hidden flex items-center gap-3 z-50"
+    >
+      <i data-lucide="check-circle" class="w-4 h-4 text-neon-cyan"></i>
+      <span id="toastMsg">Mensaje enviado exitosamente</span>
+    </div>
+
+    <!-- JAVASCRIPT LÓGICO Y NAVEGACIÓN -->
+    <script src="js/main.js"></script>
+  </body>
+</html>

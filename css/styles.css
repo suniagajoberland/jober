@@ -1,0 +1,90 @@
+/* Estilos personalizados y animaciones Neón */
+        body {
+            background-color: #080911;
+            font-family: 'Inter', sans-serif;
+            color: #e2e8f0;
+            overflow-x: hidden;
+        }
+
+        /* Glassmorphism */
+        .glass-panel {
+            background: rgba(15, 18, 28, 0.7);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+        }
+
+        .glass-card {
+            background: rgba(22, 27, 44, 0.5);
+            backdrop-filter: blur(8px);
+            border: 1px solid rgba(255, 255, 255, 0.06);
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .glass-card:hover {
+            border-color: rgba(0, 243, 255, 0.3);
+            box-shadow: 0 0 20px rgba(0, 243, 255, 0.12);
+            transform: translateY(-2px);
+        }
+
+        /* Neon Borders & Highlights */
+        .neon-border-cyan {
+            position: relative;
+        }
+        .neon-border-cyan::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 1px;
+            background: linear-gradient(90deg, transparent, #00f3ff, transparent);
+            opacity: 0.5;
+        }
+
+        .neon-glow-text-cyan {
+            text-shadow: 0 0 10px rgba(0, 243, 255, 0.5);
+        }
+
+        .neon-glow-text-purple {
+            text-shadow: 0 0 10px rgba(176, 38, 255, 0.5);
+        }
+
+        /* Scrollbar styling */
+        ::-webkit-scrollbar {
+            width: 6px;
+            height: 6px;
+        }
+        ::-webkit-scrollbar-track {
+            background: rgba(8, 9, 17, 0.8);
+        }
+        ::-webkit-scrollbar-thumb {
+            background: rgba(255, 255, 255, 0.15);
+            border-radius: 4px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: rgba(0, 243, 255, 0.4);
+        }
+
+        /* Active Navigation Link Indicator */
+        .nav-active {
+            background: linear-gradient(90deg, rgba(0, 243, 255, 0.15) 0%, rgba(0, 243, 255, 0) 100%);
+            border-left: 3px solid #00f3ff;
+            color: #00f3ff !important;
+        }
+
+        /* Custom Input Glow */
+        .input-glow:focus {
+            outline: none;
+            border-color: #00f3ff;
+            box-shadow: 0 0 12px rgba(0, 243, 255, 0.25);
+        }
+
+        /* Pulse Dot Animation */
+        @keyframes pulseGlow {
+            0%, 100% { opacity: 1; transform: scale(1); }
+            50% { opacity: 0.5; transform: scale(1.2); }
+        }
+        .pulse-dot {
+            animation: pulseGlow 2s infinite ease-in-out;
+        }
